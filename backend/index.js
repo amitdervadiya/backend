@@ -9,7 +9,15 @@ const path = require('path')
 const cors = require('cors')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: [
+        "https://projects-web-omega.vercel.app",
+        "https://projects-web-git-main-amits-projects-9e62d6c8.vercel.app",
+        "https://projects-8njogq5q6-amits-projects-9e62d6c8.vercel.app"
+    ],
+    credentials: true
+}));
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')))
 
